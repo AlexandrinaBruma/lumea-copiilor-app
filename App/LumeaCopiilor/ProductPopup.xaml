@@ -1,0 +1,168 @@
+﻿<Window x:Class="LumeaCopiilor.ProductPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="xctk"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        AllowsTransparency="True"
+        Background="Transparent"
+        MaxWidth="720"
+        MaxHeight="700"
+        SizeToContent="Width"
+        WindowStartupLocation="CenterOwner">
+
+    <Border Background="{StaticResource LightColor}"
+            CornerRadius="16"
+            Padding="40">
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled"
+                      Padding="0,0,8,0">
+            <StackPanel>
+
+                <Grid Margin="0,34,0,34">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="ProductIdTitle"
+                               Grid.Column="0"
+                               Style="{StaticResource H1}"
+                               Text="Produs ID"
+                               FontSize="40"
+                               LineHeight="22"/>
+                    <Button x:Name="EditButton"
+                            Grid.Column="1"
+                            Style="{StaticResource TertiaryButton}"
+                            Content="Editare"
+                            Height="36"
+                            Padding="16,0"
+                            VerticalAlignment="Center"
+                            Click="EditButton_Click"/>
+                </Grid>
+
+                <Grid x:Name="FieldsGrid" Margin="0,0,0,12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Name -->
+                    <TextBlock x:Name="LblName" Grid.Row="0" Grid.Column="0" Text="Nume" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="NameValue" Grid.Row="0" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <TextBox   x:Name="NameInput" Grid.Row="0" Grid.Column="1" Style="{StaticResource InputStyle}" Margin="0,4,0,8" Visibility="Collapsed"/>
+
+                    <!-- Min Age -->
+                    <TextBlock x:Name="LblMinAge" Grid.Row="1" Grid.Column="0" Text="Vârsta minimă" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="MinAgeValue" Grid.Row="1" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <xctk:IntegerUpDown x:Name="MinAgeInput" Grid.Row="1" Grid.Column="1"
+                                        Minimum="0" Maximum="18"
+                                        Margin="0,4,0,8" Visibility="Collapsed"/>
+
+                    <!-- Max Age -->
+                    <TextBlock x:Name="LblMaxAge" Grid.Row="2" Grid.Column="0" Text="Vârsta maximă" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="MaxAgeValue" Grid.Row="2" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <xctk:IntegerUpDown x:Name="MaxAgeInput" Grid.Row="2" Grid.Column="1"
+                                        Minimum="0" Maximum="18"
+                                        Margin="0,4,0,8" Visibility="Collapsed"/>
+
+                    <!-- Manufacture Date -->
+                    <TextBlock x:Name="LblFabDate" Grid.Row="3" Grid.Column="0"
+           Text="Data fabricației" Style="{StaticResource P}"
+           FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="ManufactureDateValue" Grid.Row="3" Grid.Column="1"
+           Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <Border x:Name="FabDateBorder" Grid.Row="3" Grid.Column="1"
+        BorderBrush="{StaticResource DarkColor}"
+        BorderThickness="1.5" CornerRadius="30"
+        Margin="0,4,0,8" Visibility="Collapsed">
+                        <xctk:DateTimePicker x:Name="FabDateInput"/>
+                    </Border>
+
+                    <!-- Expiry Date -->
+                    <TextBlock x:Name="LblExpDate" Grid.Row="4" Grid.Column="0"
+           Text="Data expirării" Style="{StaticResource P}"
+           FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="ExpiryDateValue" Grid.Row="4" Grid.Column="1"
+           Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <Border x:Name="ExpDateBorder" Grid.Row="4" Grid.Column="1"
+        BorderBrush="{StaticResource DarkColor}"
+        BorderThickness="1.5" CornerRadius="30"
+        Margin="0,4,0,8" Visibility="Collapsed">
+                        <xctk:DateTimePicker x:Name="ExpDateInput"/>
+                    </Border>
+                    
+                    <!-- Price -->
+                    <TextBlock x:Name="LblPrice" Grid.Row="5" Grid.Column="0" Text="Preț" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="PriceValue" Grid.Row="5" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <xctk:DecimalUpDown x:Name="PriceInput" Grid.Row="5" Grid.Column="1"
+                                        Minimum="0" Increment="0.50" FormatString="0.00"
+                                        Margin="0,4,0,8" Visibility="Collapsed"/>
+
+                    <!-- Country -->
+                    <TextBlock x:Name="LblCountry" Grid.Row="6" Grid.Column="0" Text="Țara de origine" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="CountryValue" Grid.Row="6" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <ComboBox  x:Name="CountryInput" Grid.Row="6" Grid.Column="1"
+                               Style="{StaticResource ComboBoxStyle}"
+                               DisplayMemberPath="Name"
+                               SelectedValuePath="CountryID"
+                               Margin="0,4,0,8" Visibility="Collapsed"/>
+
+                    <!-- Importer -->
+                    <TextBlock x:Name="LblImporter" Grid.Row="7" Grid.Column="0" Text="Importator" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="ImporterValue" Grid.Row="7" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <ComboBox  x:Name="ImporterInput" Grid.Row="7" Grid.Column="1"
+                               Style="{StaticResource ComboBoxStyle}"
+                               DisplayMemberPath="CompanyName"
+                               SelectedValuePath="ImportatorID"
+                               Margin="0,4,0,8" Visibility="Collapsed"/>
+
+                    <!-- Shop -->
+                    <TextBlock x:Name="LblShop" Grid.Row="8" Grid.Column="0" Text="Magazine disponibile" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="StoresValue" Grid.Row="8" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <ComboBox  x:Name="ShopInput" Grid.Row="8" Grid.Column="1"
+                               Style="{StaticResource ComboBoxStyle}"
+                               DisplayMemberPath="DisplayName"
+                               SelectedValuePath="ShopID"
+                               Margin="0,4,0,8" Visibility="Collapsed"/>
+
+                    <!-- Quantity -->
+                    <TextBlock x:Name="LblQuantity" Grid.Row="9" Grid.Column="0" Text="Cantitate" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="QuantityValue" Grid.Row="9" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <xctk:IntegerUpDown x:Name="QuantityInput" Grid.Row="9" Grid.Column="1"
+                                        Minimum="0"
+                                        Margin="0,4,0,8" Visibility="Collapsed"/>
+                </Grid>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Left"
+                            Margin="0,16,0,0">
+                    <Button x:Name="DeleteCancelButton"
+                            Style="{StaticResource SecondaryButton}"
+                            Content="Ștergere"
+                            Margin="0,0,16,0"
+                            Click="DeleteCancelButton_Click"/>
+                    <Button x:Name="BackSaveButton"
+                            Style="{StaticResource PrimaryButton}"
+                            Content="Înapoi"
+                            Click="BackSaveButton_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</Window>

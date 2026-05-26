@@ -1,0 +1,276 @@
+<Window x:Class="LumeaCopiilor.UserAccountPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d xctk"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LumeaCopiilor"
+        Title="Contul meu"
+        WindowState="Maximized"
+        Background="{StaticResource LightColor}">
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="60,40,60,0">
+
+                <Grid Margin="0,0,0,50">
+                    <TextBlock Text="Contul meu"
+                               Style="{StaticResource H1}"
+                               HorizontalAlignment="Left"/>
+
+                    <Button x:Name="EditButton"
+                            Content="Editare"
+                            Style="{StaticResource TertiaryButton}"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Click="EditButton_Click"/>
+                </Grid>
+
+                <!-- NUME SI PRENUME -->
+                <Grid Margin="0,0,0,30">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Nume -->
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Nume"
+                                   Style="{StaticResource P}"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,6"/>
+                        <TextBlock x:Name="NumeValue"
+                                   Style="{StaticResource P}"
+                                   FontSize="18"
+                                   Margin="4,0,0,0"/>
+                        <TextBox x:Name="NumeInput"
+                                 Style="{StaticResource InputStyle}"
+                                 Visibility="Collapsed"/>
+                    </StackPanel>
+
+                    <!-- Prenume -->
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Prenume"
+                                   Style="{StaticResource P}"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,6"/>
+                        <TextBlock x:Name="PrenumeValue"
+                                   Style="{StaticResource P}"
+                                   FontSize="18"
+                                   Margin="4,0,0,0"/>
+                        <TextBox x:Name="PrenumeInput"
+                                 Style="{StaticResource InputStyle}"
+                                 Visibility="Collapsed"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- DATA NASTERII SI EMAIL -->
+                <Grid Margin="0,0,0,30">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Data nașterii -->
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Data nașterii"
+                                   Style="{StaticResource P}"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,6"/>
+                        <TextBlock x:Name="BirthdateValue"
+                                   Style="{StaticResource P}"
+                                   FontSize="18"
+                                   Margin="4,0,0,0"/>
+                        <Border x:Name="BirthdateBorder"
+                                BorderBrush="{StaticResource DarkColor}"
+                                BorderThickness="1.5"
+                                CornerRadius="30"
+                                Visibility="Collapsed">
+                            <xctk:DateTimePicker x:Name="BirthdateInput"/>
+                        </Border>
+                    </StackPanel>
+
+                    <!-- Email -->
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Email"
+                                   Style="{StaticResource P}"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,6"/>
+                        <TextBlock x:Name="EmailValue"
+                                   Style="{StaticResource P}"
+                                   FontSize="18"
+                                   Margin="4,0,0,0"/>
+                        <TextBox x:Name="EmailInput"
+                                 Style="{StaticResource InputStyle}"
+                                 Visibility="Collapsed"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- TELEFON SI GEN -->
+                <Grid Margin="0,0,0,30">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Telefon -->
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Numărul de telefon"
+                                   Style="{StaticResource P}"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,6"/>
+                        <TextBlock x:Name="TelefonValue"
+                                   Style="{StaticResource P}"
+                                   FontSize="18"
+                                   Margin="4,0,0,0"/>
+                        <TextBox x:Name="TelefonInput"
+                                 Style="{StaticResource InputStyle}"
+                                 Visibility="Collapsed"/>
+                    </StackPanel>
+
+                    <!-- Gen -->
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Gen"
+                                   Style="{StaticResource P}"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,6"/>
+                        <TextBlock x:Name="GenderValue"
+                                   Style="{StaticResource P}"
+                                   FontSize="18"
+                                   Margin="4,0,0,0"/>
+                        <ComboBox x:Name="GenderInput"
+                                  Style="{StaticResource ComboBoxStyle}"
+                                  Visibility="Collapsed">
+                            <ComboBoxItem Content="Masculin" Tag="M"/>
+                            <ComboBoxItem Content="Feminin"  Tag="F"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+
+                <!-- USERNAME SI PAROLA -->
+                <Grid Margin="0,0,0,30">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Username -->
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Username"
+                                   Style="{StaticResource P}"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,6"/>
+                        <TextBlock x:Name="UsernameValue"
+                                   Style="{StaticResource P}"
+                                   FontSize="18"
+                                   Margin="4,0,0,0"/>
+                        <TextBox x:Name="UsernameInput"
+                                 Style="{StaticResource InputStyle}"
+                                 Visibility="Collapsed"/>
+                    </StackPanel>
+
+                    <!-- Parolă -->
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Parolă"
+                                   Style="{StaticResource P}"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,6"/>
+                        <TextBlock x:Name="ParolaValue"
+                                   Style="{StaticResource P}"
+                                   FontSize="18"
+                                   Margin="4,0,0,0"/>
+                        <TextBox x:Name="ParolaInput"
+                                 Style="{StaticResource InputStyle}"
+                                 Visibility="Collapsed"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- ORAS SI DATA INREGISTRARII (read-only) -->
+                <Grid Margin="0,0,0,50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Oraș -->
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Oraș"
+                                   Style="{StaticResource P}"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,6"/>
+                        <TextBlock x:Name="CityValue"
+                                   Style="{StaticResource P}"
+                                   FontSize="18"
+                                   Margin="4,0,0,0"/>
+                        <ComboBox x:Name="CityInput"
+                                  Style="{StaticResource ComboBoxStyle}"
+                                  DisplayMemberPath="DisplayName"
+                                  SelectedValuePath="CityID"
+                                  Visibility="Collapsed"/>
+                    </StackPanel>
+
+                    <!-- Data înregistrării (always read-only) -->
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Data înregistrării"
+                                   Style="{StaticResource P}"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,6"/>
+                        <TextBlock x:Name="RegistrationDateValue"
+                                   Style="{StaticResource P}"
+                                   FontSize="18"
+                                   Margin="4,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- BUTOANE -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="StergereContButton"
+                            Grid.Column="0"
+                            Content="Stergere cont"
+                            Style="{StaticResource SecondaryButton}"
+                            MinWidth="0"
+                            MinHeight="70"
+                            Click="StergereContButton_Click"/>
+
+                    <Button x:Name="InapoiButton"
+                            Grid.Column="2"
+                            Content="Inapoi"
+                            Style="{StaticResource PrimaryButton}"
+                            MinWidth="0"
+                            MinHeight="70"
+                            Click="InapoiButton_Click"/>
+                </Grid>
+
+                <Image Source="/Assets/bottom-img.png"
+                       Margin="0,70,0,0"
+                       Stretch="UniformToFill"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Bottom"/>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+
+</Window>

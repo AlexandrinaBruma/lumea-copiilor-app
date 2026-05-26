@@ -1,0 +1,129 @@
+﻿<Window x:Class="LumeaCopiilor.PurchaseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:LumeaCopiilor"
+        Title="Comandă" 
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource LightColor}">
+
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto"
+           HorizontalScrollBarVisibility="Disabled">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0"
+                   Text="Comandați" 
+                   Style="{StaticResource H1}"
+                   HorizontalAlignment="Center"
+                   Margin="0,40,0,30"/>
+
+
+            <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="350"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="350"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- PRODUS -->
+                <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,0,20">
+                    <TextBlock Text="Produsul:" Style="{StaticResource P}" Margin="0,0,0,8"/>
+                    <TextBox x:Name="NumeProdusTextBox" 
+                             Style="{StaticResource InputStyle}"
+                             IsReadOnly="True"
+                             Padding="16,10"/>
+                </StackPanel>
+
+                <!-- MAGAZIN -->
+                <StackPanel Grid.Row="0" Grid.Column="2" Margin="0,0,0,20">
+                    <TextBlock Text="Alegeți magazinul ridicării comenzii:" Style="{StaticResource P}" Margin="0,0,0,8"/>
+                    <ComboBox x:Name="MagazinComboBox"
+                              Style="{StaticResource ComboBoxStyle}"/>
+                </StackPanel>
+
+                <!-- TIP PLATĂ -->
+                <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,0,20">
+                    <TextBlock Text="Introduceți tipul plății:" Style="{StaticResource P}" Margin="0,0,0,8"/>
+                    <ComboBox x:Name="TipPlataComboBox"
+                              Style="{StaticResource ComboBoxStyle}"
+                              SelectionChanged="OnTipPlataSelectionChanged"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="2" Margin="0,0,0,20">
+                    <TextBlock Text="Introduceți cantitatea:" Style="{StaticResource P}" Margin="0,0,0,8"/>
+                    <TextBox x:Name="CantitateTextBox"
+                             Style="{StaticResource InputStyle}"
+                             Padding="16,10"
+                             TextChanged="OnCantitateTextChanged"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Grid.Column="0"
+                            x:Name="NumarCardContainer"
+                            Visibility="Collapsed"
+                            Margin="0,0,0,20">
+                    <TextBlock Text="Introduceți numărul cardului:" Style="{StaticResource P}" Margin="0,0,0,8"/>
+                    <TextBox x:Name="NumarCardTextBox"
+                             Style="{StaticResource InputStyle}"
+                             IsEnabled="False"
+                             Foreground="{StaticResource Placeholder}"
+                             Padding="16,10"/>
+                </StackPanel>
+
+                <!-- SUMA TOTALĂ -->
+                <TextBlock Grid.Row="2" Grid.Column="2"
+                           x:Name="SumaTotalTextBlock"
+                           Text="Suma totală:  $12" 
+                           Style="{StaticResource P}"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Margin="0,30,0,0"
+                           FontSize="16"
+                           FontWeight="SemiBold"
+                           Foreground="{StaticResource Paragraph}"/>
+            </Grid>
+
+            <!-- BUTTONS -->
+            <Grid Grid.Row="2" Margin="40,30,40,40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0"
+            Content="Anulare"
+            Style="{StaticResource SecondaryButton}"
+            VerticalAlignment="Center"
+            Click="OnAnulareClick"/>
+
+                <Button Grid.Column="2"
+            Content="Comandă"
+            Style="{StaticResource PrimaryButton}"
+            VerticalAlignment="Center"
+            Click="OnComandaClick"/>
+            </Grid>
+            <!-- IMAGINE -->
+            <Image Grid.Row="3"
+                   Source="/Assets/home-img.png"
+                   Stretch="Uniform"
+                   MaxHeight="400"
+                   HorizontalAlignment="Center"
+                   Margin="0,20,0,0"/>
+
+        </Grid>
+       
+    </ScrollViewer>
+
+</Window>

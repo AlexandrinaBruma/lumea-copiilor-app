@@ -1,0 +1,75 @@
+﻿<Window x:Class="LumeaCopiilor.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LumeaCopiilor"
+        mc:Ignorable="d"
+        Title="Login"
+        WindowState="Maximized"
+        Background="{StaticResource LightColor}">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Disabled">
+        
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Style="{StaticResource H1}"
+                   Text="Conectați-vă"
+                   HorizontalAlignment="Center"
+                   Margin="0,80,0,48"/>
+
+        <!-- INPUT-URI -->
+        <Grid Grid.Row="1"
+              Margin="80,0,80,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="32"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Introduceți numele de utilizator"
+                           Style="{StaticResource P}"
+                           Margin="0,0,0,8"/>
+                <TextBox x:Name="UsernameInput"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Introduceți parola"
+                           Style="{StaticResource P}"
+                           Margin="0,0,0,8"/>
+
+                <TextBox x:Name="PasswordInput"/>
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2"
+              Margin="80,32,80,0">
+            <Button Style="{StaticResource SecondaryButton}"
+                    Content="Sunt utilizator nou"
+                    HorizontalAlignment="Left" Click="Button_Click_1"/>
+            <Button Style="{StaticResource PrimaryButton}"
+                    Content="Conectare"
+                    HorizontalAlignment="Right" Click="Button_Click"/>
+        </Grid>
+
+        <Image Grid.Row="3"
+               Source="/Assets/login-image.png"
+               Stretch="Uniform"
+               VerticalAlignment="Bottom"
+               HorizontalAlignment="Center"/>
+        
+    </Grid>
+   
+    </ScrollViewer>
+
+</Window>

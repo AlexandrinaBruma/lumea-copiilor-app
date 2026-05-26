@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\bottom img.png" />
+    <None Remove="Assets\bottom-img.png" />
+    <None Remove="Assets\cart.png" />
+    <None Remove="Assets\home img.png" />
+    <None Remove="Assets\home-img.png" />
+    <None Remove="Assets\image.png" />
+    <None Remove="Assets\login-image.png" />
+    <None Remove="Assets\welcome image.png" />
+    <None Remove="Assets\welcome-image.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.102.3" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.20.0" />
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\bottom-img.png" />
+    <Resource Include="Assets\cart.png" />
+    <Resource Include="Assets\hero.png" />
+    <Resource Include="Assets\home-img.png" />
+    <Resource Include="Assets\login-image.png" />
+    <Resource Include="Assets\welcome-image.png" />
+  </ItemGroup>
+
+</Project>

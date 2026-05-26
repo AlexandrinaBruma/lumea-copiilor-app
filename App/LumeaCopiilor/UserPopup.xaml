@@ -1,0 +1,158 @@
+﻿<Window x:Class="LumeaCopiilor.UserPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="xctk"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        AllowsTransparency="True"
+        Background="Transparent"
+        MaxWidth="720"
+        MaxHeight="700"
+        SizeToContent="Width"
+        WindowStartupLocation="CenterOwner">
+
+    <Border Background="{StaticResource LightColor}"
+            CornerRadius="16"
+            Padding="40">
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled"
+                      Padding="0,0,8,0">
+            <StackPanel>
+
+                <Grid Margin="0,34,0,34">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="UserIdTitle"
+                               Grid.Column="0"
+                               Style="{StaticResource H1}"
+                               Text="Utilizator ID"
+                               FontSize="40"
+                               LineHeight="22"/>
+                    <Button x:Name="EditButton"
+                            Grid.Column="1"
+                            Style="{StaticResource TertiaryButton}"
+                            Content="Editare"
+                            Height="36"
+                            Padding="16,0"
+                            VerticalAlignment="Center"
+                            Click="EditButton_Click"/>
+                </Grid>
+
+                <Grid x:Name="FieldsGrid" Margin="0,0,0,12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Username -->
+                    <TextBlock x:Name="LblUsername" Grid.Row="0" Grid.Column="0" Text="Username" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="UsernameValue" Grid.Row="0" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <TextBox   x:Name="UsernameInput" Grid.Row="0" Grid.Column="1" Style="{StaticResource InputStyle}" Margin="0,4,0,8" Visibility="Collapsed"/>
+
+                    <!-- Parolă -->
+                    <TextBlock x:Name="LblParola" Grid.Row="1" Grid.Column="0" Text="Parolă" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="ParolaValue" Grid.Row="1" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <TextBox   x:Name="ParolaInput" Grid.Row="1" Grid.Column="1" Style="{StaticResource InputStyle}" Margin="0,4,0,8" Visibility="Collapsed"/>
+
+                    <!-- Nume -->
+                    <TextBlock x:Name="LblNume" Grid.Row="2" Grid.Column="0" Text="Nume" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="NumeValue" Grid.Row="2" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <TextBox   x:Name="NumeInput" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputStyle}" Margin="0,4,0,8" Visibility="Collapsed"/>
+
+                    <!-- Prenume -->
+                    <TextBlock x:Name="LblPrenume" Grid.Row="3" Grid.Column="0" Text="Prenume" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="PrenumeValue" Grid.Row="3" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <TextBox   x:Name="PrenumeInput" Grid.Row="3" Grid.Column="1" Style="{StaticResource InputStyle}" Margin="0,4,0,8" Visibility="Collapsed"/>
+
+                    <!-- Birthdate -->
+                    <TextBlock x:Name="LblBirthdate" Grid.Row="4" Grid.Column="0" Text="Data nașterii" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="BirthdateValue" Grid.Row="4" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <Border x:Name="BirthdateBorder" Grid.Row="4" Grid.Column="1"
+                            BorderBrush="{StaticResource DarkColor}"
+                            BorderThickness="1.5" CornerRadius="30"
+                            Margin="0,4,0,8" Visibility="Collapsed">
+                        <xctk:DateTimePicker x:Name="BirthdateInput"/>
+                    </Border>
+
+                    <!-- Email -->
+                    <TextBlock x:Name="LblEmail" Grid.Row="5" Grid.Column="0" Text="Email" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="EmailValue" Grid.Row="5" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <TextBox   x:Name="EmailInput" Grid.Row="5" Grid.Column="1" Style="{StaticResource InputStyle}" Margin="0,4,0,8" Visibility="Collapsed"/>
+
+                    <!-- Phone -->
+                    <TextBlock x:Name="LblPhone" Grid.Row="6" Grid.Column="0" Text="Număr de telefon" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="PhoneValue" Grid.Row="6" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <TextBox   x:Name="PhoneInput" Grid.Row="6" Grid.Column="1" Style="{StaticResource InputStyle}" Margin="0,4,0,8" Visibility="Collapsed"/>
+
+                    <!-- Gen -->
+                    <TextBlock x:Name="LblGender" Grid.Row="7" Grid.Column="0" Text="Gen" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="GenderValue" Grid.Row="7" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <ComboBox  x:Name="GenderInput" Grid.Row="7" Grid.Column="1"
+                               Style="{StaticResource ComboBoxStyle}"
+                               Margin="0,4,0,8" Visibility="Collapsed">
+                        <ComboBoxItem Content="Masculin" Tag="M"/>
+                        <ComboBoxItem Content="Feminin"  Tag="F"/>
+                    </ComboBox>
+
+                    <!-- Data înregistrării (read-only) -->
+                    <TextBlock x:Name="LblRegDate" Grid.Row="8" Grid.Column="0" Text="Data înregistrării" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="RegistrationDateValue" Grid.Row="8" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+
+                    <!-- Oraș -->
+                    <TextBlock x:Name="LblCity" Grid.Row="9" Grid.Column="0" Text="Oraș" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="CityValue" Grid.Row="9" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <ComboBox  x:Name="CityInput" Grid.Row="9" Grid.Column="1"
+                               Style="{StaticResource ComboBoxStyle}"
+                               DisplayMemberPath="DisplayName"
+                               SelectedValuePath="CityID"
+                               Margin="0,4,0,8" Visibility="Collapsed"/>
+
+                    <!-- Rol -->
+                    <TextBlock x:Name="LblRole" Grid.Row="10" Grid.Column="0" Text="Rol" Style="{StaticResource P}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock x:Name="RoleValue" Grid.Row="10" Grid.Column="1" Text="-" Style="{StaticResource P}" Margin="0,0,0,12"/>
+                    <ComboBox  x:Name="RoleInput" Grid.Row="10" Grid.Column="1"
+                               Style="{StaticResource ComboBoxStyle}"
+                               Margin="0,4,0,8" Visibility="Collapsed">
+                        <ComboBoxItem Content="Administrator" Tag="A"/>
+                        <ComboBoxItem Content="Utilizator"    Tag="U"/>
+                    </ComboBox>
+
+                </Grid>
+
+                <!-- Buttons -->
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Left"
+                            Margin="0,16,0,0">
+                    <Button x:Name="DeleteCancelButton"
+                            Style="{StaticResource SecondaryButton}"
+                            Content="Ștergere"
+                            Margin="0,0,16,0"
+                            Click="DeleteCancelButton_Click"/>
+                    <Button x:Name="BackSaveButton"
+                            Style="{StaticResource PrimaryButton}"
+                            Content="Înapoi"
+                            Click="BackSaveButton_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</Window>

@@ -1,0 +1,82 @@
+﻿<Window x:Class="LumeaCopiilor.DashboardUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        mc:Ignorable="d"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LumeaCopiilor"
+        Title="Dashboard"
+        WindowState="Maximized"
+        Background="{StaticResource LightColor}">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0"
+                   Source="/Assets/welcome-image.png"
+                   Stretch="UniformToFill"
+                   HorizontalAlignment="Stretch"
+                   MaxHeight="400"/>
+            <Grid Grid.Row="1" Margin="32,24,32,0">
+                <Button Style="{StaticResource TertiaryButton}"
+                        Content="Vezi contul meu"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center" Click="MyAcc_Click"/>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+                    <TextBox x:Name="SearchInput" 
+                             Width="250"
+                             MinHeight="40"/>
+                    <Button Style="{StaticResource PrimaryButton}"
+                            Content="Caută"
+                            MinHeight="40"
+                            Width="100"
+                            Margin="8,0,0,0" Click="Search_Click" RenderTransformOrigin="0.5,0.5"/>
+                </StackPanel>
+            </Grid>
+            <ItemsControl Grid.Row="2"
+              x:Name="ProductsItemsControl"
+              Margin="32,24,32,24">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="7"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource ProductCard}"
+                                Cursor="Hand"
+                                MouseLeftButtonUp="ProductCard_Click">
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="{Binding Name}"
+                               FontFamily="{StaticResource MainFont}"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               Foreground="{StaticResource DarkColor}"
+                               TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding Price}"
+                               FontFamily="{StaticResource MainFont}"
+                               FontSize="14"
+                               Foreground="{StaticResource Paragraph}"
+                               Margin="0,4,0,0"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <StackPanel Grid.Row="3">
+                <Button Style="{StaticResource SecondaryButton}"
+                        Content="Închidere program"
+                        HorizontalAlignment="Left"
+                        Margin="32,0,0,16" Click="Button_Close"/>
+                <Image Source="/Assets/home-img.png"
+                       Stretch="UniformToFill"
+                       HorizontalAlignment="Stretch"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>
